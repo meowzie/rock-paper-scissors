@@ -11,15 +11,60 @@ function randomNum() {
 function computerPlay(theNumber) {
     theNumber = randomNum()
     //create a conditional that returns rock, paper, or scissors for 0, 1, and 2 respectively//
-    let choice
+    let computerChoice
     if (theNumber===0) {
-        choice = "Rock"
+        computerChoice = "rock"
     } else if (theNumber===1) {
-        choice = "Paper"
+        computerChoice = "paper"
     } else {
-        choice = "Scissors"
+        computerChoice = "scissors"
     }
-    return choice
+    return computerChoice
 }
 
-console.log(computerPlay())
+//create a function that asks the user for input, then converts their input to 0, 1, or 2 for rock, paper, or scissors respectively//
+function playerPrompt(playerSelection) {
+    //ask the user for input//
+    playerSelection = prompt().toLowerCase()
+    //conditional to make sure that the player is only choosing one of the three options and nothing else//
+    if (playerSelection==="rock" || playerSelection==="paper" || playerSelection==="scissors" || playerSelection==="scissor") {
+        return playerSelection
+    } else {
+        playerSelection = "Invalid input"
+        return playerSelection
+    }
+}
+
+//write a function that capitalizes the first letter of a string//
+function firstLetterCapital(stringy) {
+    let firstLetter = stringy.slice(0,1).toUpperCase()
+    let restOfStringy = stringy.slice(1).toLowerCase()
+    let completeStringy = firstLetter + restOfStringy
+    return completeStringy
+}
+
+//create a function that evaluates whether the player has won or not//
+function winOrLose(playerSelection, computerChoice) {
+    //Assign the computer and player's choices to variables//
+    playerSelection = playerPrompt()
+    computerChoice = computerPlay()
+    
+
+
+    //conditional to check which variable is bigger, and decide whether the player has won based on the options correlated with the variables//
+    if (playerSelection===computerChoice) {
+        return "It's a tie"
+    } else if ((playerSelection==="paper" && computerChoice==="rock") || (playerSelection==="scissors" && computerChoice==="paper") || (playerSelection==="rock" && computerChoice==="scissors")) {
+        return `You win! ${firstLetterCapital(playerSelection)} beats ${computerChoice}`
+    } else if (playerSelection==="Invalid input") {
+        return playerSelection
+    } else {
+        return `You lose! ${firstLetterCapital(computerChoice)} beats ${playerSelection}`
+    }
+}
+
+console.log(winOrLose())
+console.log(winOrLose())
+console.log(winOrLose())
+console.log(winOrLose())
+console.log(winOrLose())
