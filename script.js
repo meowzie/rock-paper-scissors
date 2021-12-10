@@ -43,6 +43,10 @@ function firstLetterCapital(stringy) {
     return completeStringy
 }
 
+//create variables to count the score
+let playerCounter=0
+let computerCounter=0
+
 //create a function that evaluates whether the player has won or not//
 function winOrLose(playerSelection, computerChoice) {
     //Assign the computer and player's choices to variables//
@@ -53,13 +57,15 @@ function winOrLose(playerSelection, computerChoice) {
 
     //conditional to check which variable is bigger, and decide whether the player has won based on the options correlated with the variables//
     if (playerSelection===computerChoice) {
-        return "It's a tie"
+        return `It's a tie. The score is ${playerCounter}-${computerCounter}`
     } else if ((playerSelection==="paper" && computerChoice==="rock") || (playerSelection==="scissors" && computerChoice==="paper") || (playerSelection==="rock" && computerChoice==="scissors")) {
-        return `You win! ${firstLetterCapital(playerSelection)} beats ${computerChoice}`
+        ++playerCounter
+        return `You win the round! ${firstLetterCapital(playerSelection)} beats ${computerChoice}. The score is ${playerCounter}-${computerCounter}`
     } else if (playerSelection==="Invalid input") {
         return playerSelection
     } else {
-        return `You lose! ${firstLetterCapital(computerChoice)} beats ${playerSelection}`
+        ++computerCounter
+        return `You lose the round! ${firstLetterCapital(computerChoice)} beats ${playerSelection}. The score is ${playerCounter}-${computerCounter}`
     }
 }
 
@@ -68,3 +74,11 @@ console.log(winOrLose())
 console.log(winOrLose())
 console.log(winOrLose())
 console.log(winOrLose())
+
+if (playerCounter > computerCounter) {
+    console.log(`You won the game, ${playerCounter} to ${computerCounter}`)
+} else if (playerCounter < computerCounter) {
+    console.log(`You lost the game, ${playerCounter} to ${computerCounter}`)
+} else if (playerCounter == computerCounter) {
+    console.log(`It's a tie, ${playerCounter} to ${computerCounter}; this is so sad`)
+}
