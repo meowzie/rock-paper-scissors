@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+    font-size: 5em;
+}
+.button-row {
+    display: flex;
+    gap: 5vh;
+}
+button {
+    border-radius: 10px;
+}
+.rock {
+    background-image: url(rock.png);
+    background-size: 13.5em;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 20em;
+    width: 17em;
+    transition: background-color 0.15s;
+}
+.rock:hover {
+    background-image: url(rock-hover.png);
+    background-size: 15em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(66, 66, 66);
+    height: 20em;
+    width: 17em;
+    transition: background-color 0.15s;
+}
+.paper {
+    background-image: url(paper.png);
+    background-size: 12em;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 20em;
+    width: 17em;
+    transition: background-color 0.15s;
+}
+.paper:hover {
+    background-image: url(paper-hover.png);
+    background-size: 14em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(66, 66, 66);
+    height: 20em;
+    width: 17em;
+    transition: background-color 0.15s;
+}
+.scissors {
+    background-image: url(scissors.png);
+    background-size: 12em;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 20em;
+    width: 17em;
+    transition: background-color 0.15s;
+}
+.scissors:hover {
+    background-image: url(scissors-hover.png);
+    background-size: 14em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(66, 66, 66);
+    height: 20em;
+    width: 17em;
+    transition: background-color 0.15s;
+}
+p {
+    font-size: 2em;
+    margin-top: 1em;
+}
